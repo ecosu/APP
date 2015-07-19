@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+		<style type="text/css">
+			.mui-content {
+				text-align: center;
+				width: 80%;
+				margin:100px auto;
+			}
+			.title-login {
+margin-bottom: 50px;
+				font-weight: bold;
+				font-size: 30px;
+				text-align: center;
+			}
+			#txt_name,
+			#txt_password {
+				height: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">登录</h1>
+		</header>
+		<div class="mui-content">
+			<div class="title-login">
+				用户登录
+			</div>
+			<input type="text" placeholder="请输入用户名" id="txt_name" />
+			<input type="password" placeholder="请输入密码" id="txt_password" />
+			<button class="mui-btn mui-btn-block mui-btn-primary" id="btn_login">登录</button>
+		</div>
+		<script type="text/javascript">
+			window.onload = function() {
+				document.getElementById('btn_login').addEventListener('tap', checklogin)
+			}
+
+			function checklogin() {
+				var name = document.getElementById('txt_name').value.trim();
+				var pwd = document.getElementById('txt_password').value.trim();
+				if(name.length<=0||pwd.length<=0)
+				{
+					alert('用户名密码输入不正确')
+					return;
+				}
+				alert('登录成功');
+			}
+		</script>
+	</body>
+
+</html>
