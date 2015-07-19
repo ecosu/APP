@@ -14,10 +14,10 @@
 			.mui-content {
 				text-align: center;
 				width: 80%;
-				margin:100px auto;
+				margin: 100px auto;
 			}
 			.title-login {
-margin-bottom: 50px;
+				margin-bottom: 50px;
 				font-weight: bold;
 				font-size: 30px;
 				text-align: center;
@@ -49,12 +49,31 @@ margin-bottom: 50px;
 			function checklogin() {
 				var name = document.getElementById('txt_name').value.trim();
 				var pwd = document.getElementById('txt_password').value.trim();
-				if(name.length<=0||pwd.length<=0)
-				{
+				if (name.length <= 0 || pwd.length <= 0) {
 					alert('用户名密码输入不正确')
 					return;
 				}
-				alert('登录成功');
+				mui.ajax('http://atree.sinaapp.com/APP/checklogin.php', {
+					data: {
+						username: name,
+						password: pwd
+					},
+					dataType: 'json',
+					type: 'post',
+					timeout: 10000,
+					success: function(data) {
+						var result = data.result;
+						if(result){
+							//alert('登录成功')
+							mui.openWindow({url:'main.html',id:'main.html'})
+						}
+						else
+							plus.nativeUI.alert('用户名或密码不正确！')
+					},
+					error: function(xhr, type, errorThrown) {
+						console.log(type);
+					}
+				})
 			}
 		</script>
 	</body>
