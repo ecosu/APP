@@ -1,39 +1,142 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title></title>
-    <script src="js/mui.min.js"></script>
-    <link href="css/mui.min.css" rel="stylesheet"/>
-    <script type="text/javascript" charset="utf-8">
-      	mui.init();
-    </script>
-</head>
-<body>
-	<header class="mui-bar mui-bar-nav">
-		<h1 class="mui-title">标题</h1>
-	</header>
-	<div class="mui-content">
-		
-	</div>
-	<nav class="mui-bar mui-bar-tab">
-		<a class="mui-tab-item mui-active">
-			<span class="mui-icon mui-icon-arrowleft"></span>
-			<span class="mui-tab-label">返回</span>
-		</a>
-		<a class="mui-tab-item">
-			<span class="mui-icon mui-icon-home"></span>
-			<span class="mui-tab-label">主页</span>
-		</a>
-		<a class="mui-tab-item">
-			<span class="mui-icon mui-icon-star"></span>
-			<span class="mui-tab-label">收藏</span>
-		</a>
-		<a class="mui-tab-item">
-			<span class="mui-icon mui-icon-settings"></span>
-			<span class="mui-tab-label">设置</span>
-		</a>
-	</nav>
-</body>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+		<style type="text/css">
+			.mui-table-view{margin-bottom: 50px;}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title"></h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#" onclick="return false"><img src="http://dcloudio.github.io/mui/assets/img/yuantiao.jpg"></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#" onclick="return false"><img src="http://dcloudio.github.io/mui/assets/img/shuijiao.jpg"></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#" onclick="return false"><img src="http://dcloudio.github.io/mui/assets/img/muwu.jpg"></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#" onclick="return false"><img src="http://dcloudio.github.io/mui/assets/img/cbd.jpg"></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#" onclick="return false"><img src="http://dcloudio.github.io/mui/assets/img/yuantiao.jpg"></a>
+					</div>
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#" onclick="return false"><img src="http://dcloudio.github.io/mui/assets/img/shuijiao.jpg"></a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+		<div class="mui-table-view mui-grid-view mui-grid-9">
+			<li class="mui-table-view-cell mui-media mui-col-xs-4">
+				<a href="#" onclick="return false">
+					<span class="mui-icon mui-icon-image"></span>
+				    <div class="mui-media-body">图片</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-4">
+				<a href="#" onclick="return false">
+					<span class="mui-icon mui-icon-videocam"></span>
+					<div class="mui-media-body">视频</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-4">
+				<a href="#" onclick="return false">
+					<span class="mui-icon mui-icon-bars"></span>
+					<div class="mui-media-body">文章</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-4">
+				<a href="#" onclick="return false">
+					<span class="mui-icon mui-icon-camera"></span>
+					<div class="mui-media-body">拍照</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-4">
+				<a href="#" onclick="return false">
+					<span class="mui-icon mui-icon-pengyouquan"></span>
+					<div class="mui-media-body">朋友圈</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-4">
+				<a href="#" onclick="return false">
+					<span class="mui-icon mui-icon-map"></span>
+					<div class="mui-media-body">地图</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-4">
+				<a href="#" onclick="return false">
+					<span class="mui-icon mui-icon-mic"></span>
+					<div class="mui-media-body">语音</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-4">
+				<a href="#" onclick="return false">
+					<span class="mui-icon mui-icon-email"></span>
+					<div class="mui-media-body">邮件</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-4">
+				<a href="#" onclick="return false">
+					<span class="mui-icon mui-icon-plusempty"></span>
+					<div class="mui-media-body">添加</div>
+				</a>
+			</li>
+		</div>
+		</div>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active">
+				<span class="mui-icon mui-icon-arrowleft"></span>
+				<span class="mui-tab-label">返回</span>
+			</a>
+			<a class="mui-tab-item" onclick="return false;" id="tab_home">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">主页</span>
+			</a>
+			<a class="mui-tab-item">
+				<span class="mui-icon mui-icon-star"></span>
+				<span class="mui-tab-label">收藏</span>
+			</a>
+			<a class="mui-tab-item" onclick="return false;" id="tab_setting">
+				<span class="mui-icon mui-icon-settings"></span>
+				<span class="mui-tab-label">设置</span>
+			</a>
+		</nav>
+		<script type="text/javascript">
+			window.onload = function() {
+				document.getElementById('tab_home').addEventListener('tab', function() {
+					mui.openWindow({
+						url: 'main.html',
+						id: 'main.html'
+					})
+				})
+				document.getElementById('tab_setting').addEventListener('tab', function() {
+					alert('');
+					//mui.openWindow({url:'setting.html',id:'setting.html'})
+				})
+			}
+		</script>
+	</body>
+
 </html>
