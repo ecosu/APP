@@ -48,10 +48,69 @@
 				document.getElementById('btn_regist').addEventListener('tap', regist)
 			}
 
+			var currVer = null;
+			function checkUpdate() {
+				mui.plusReady(function() {
+					plus.runtime.getProperty(plus.runtime.appid,function(inf){
+						currVer=inf.version;
+					})
+				})
+				mui.ajax('http://atree.sinaapp.com/APP/checkversion.php',{
+					data:{
+						version:currVer
+					},
+					dataType:'json',
+					timeout:1000,
+					success:function(data){
+						var result = data.result;
+						if(result){
+							var w;
+							w=plus.nativeUI.showWaiting('开始更新...')
+							var url = data.url;//新版本连接
+							var options = {filename:'_doc/update/'};
+							var dtask = plus.downloader.createDownload(url,options,function(d,status){
+								if	(status==200){
+									console.log('下载更新包完成');
+									setTimeout(initall(d.filename),2000)开始下载
+								}
+								else{
+									console.log('下载更新包失败')
+									plus.nativeUI.alert('下载更新资源失败')
+								}
+							});
+							dtask.addEventListener('statechanged',function(task,status){
+								switch(task.state){
+									case 1:
+									case 2:
+									w.setTitle('开始下载');
+									break;
+									case 3:
+									var a = task.downloadedSize/task.totalSize*100;
+									w.setTitle('已下载'+parseInt(a)+'%');
+									break;
+									case 4:
+									w.close();
+									break;
+								}
+							})
+							dtask.start();
+						}
+					}
+				})
+			}
+			function install(path){
+				plus.runtime.install(path,{},function(){
+					plus.nativeUI.alert('应用更新完成',function(){
+						plus.runtime.restart();
+					})
+				})
+			}
+			
+
 			function regist() {
 				mui.openWindow({
-					url:'regist.html',
-					id:'regist.html'
+					url: 'regist.html',
+					id: 'regist.html'
 				})
 			}
 
@@ -74,7 +133,7 @@
 						var result = data.result;
 						if (result) {
 							//alert('登录成功')
-							sessionStorage.setItem('name',name)
+							sessionStorage.setItem('name', name)
 							mui.openWindow({
 								url: 'main.html',
 								id: 'main.html'

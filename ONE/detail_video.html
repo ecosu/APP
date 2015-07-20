@@ -45,9 +45,10 @@
 		window.onload=function(){
 			mui.plusReady(function(){
 				plus.navigator.setFullscreen(true);
+				var lockOrientation = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
+				window.screen.lockOrientation('landscape-primary');//设置横屏
 			})
 		}
-		
 	</script>
 </body>
 </html>
