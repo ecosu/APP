@@ -40,10 +40,19 @@
 			<input type="text" placeholder="请输入用户名" id="txt_name" />
 			<input type="password" placeholder="请输入密码" id="txt_password" />
 			<button class="mui-btn mui-btn-block mui-btn-primary" id="btn_login">登录</button>
+			<button class="mui-btn mui-btn-block mui-btn-outlined" id="btn_regist">注册</button>
 		</div>
 		<script type="text/javascript">
 			window.onload = function() {
 				document.getElementById('btn_login').addEventListener('tap', checklogin)
+				document.getElementById('btn_regist').addEventListener('tap', regist)
+			}
+
+			function regist() {
+				mui.openWindow({
+					url:'regist.html',
+					id:'regist.html'
+				})
 			}
 
 			function checklogin() {
@@ -63,11 +72,14 @@
 					timeout: 10000,
 					success: function(data) {
 						var result = data.result;
-						if(result){
+						if (result) {
 							//alert('登录成功')
-							mui.openWindow({url:'main.html',id:'main.html'})
-						}
-						else
+							sessionStorage.setItem('name',name)
+							mui.openWindow({
+								url: 'main.html',
+								id: 'main.html'
+							})
+						} else
 							plus.nativeUI.alert('用户名或密码不正确！')
 					},
 					error: function(xhr, type, errorThrown) {
