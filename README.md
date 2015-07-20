@@ -1,2 +1,6 @@
 # APP
-This is my first time to create a WebApp on GitHub.
+这是一个WebApp程序，开发工具为HBuilder，使用H5+MUI框架开发，后台使用php
+
+项目进度
+2015-07-18 创建项目
+2015-07-19 添加登录界面，主界面和设置界面。登录功能使用mui的ajax调用远程php件返回json。有时候会出现登录耗时过长等问题，在页面跳转的时候有没法跳转等情况。
