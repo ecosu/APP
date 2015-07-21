@@ -17,13 +17,13 @@
     </style>
 </head>
 <body>
-	<header class="mui-bar mui-bar-nav">
+	<!--<header class="mui-bar mui-bar-nav">
 		<h1 class="mui-title">视频内容</h1>
-	</header>
+	</header>-->
 	<div class="mui-content">
-		<video src="http://atree.qiniudn.com/Making Music.mp4" controls="controls" width="800" height="600">浏览器不支持</video>
+		<video src="http://atree.qiniudn.com/Making Music.mp4" controls="controls">浏览器不支持</video>
 	</div>
-	<nav class="mui-bar mui-bar-tab">
+	<!--<nav class="mui-bar mui-bar-tab">
 		<a class="mui-tab-item mui-active">
 			<span class="mui-icon mui-icon-home"></span>
 			<span class="mui-tab-label">首页</span>
@@ -40,14 +40,26 @@
 			<span class="mui-icon mui-icon-gear"></span>
 			<span class="mui-tab-label">设置</span>
 		</a>
-	</nav>
+	</nav>-->
 	<script>
 		window.onload=function(){
+			var width=0;
+			var height=0;
 			mui.plusReady(function(){
+
 				plus.navigator.setFullscreen(true);
 				var lockOrientation = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
-				window.screen.lockOrientation('landscape-primary');//设置横屏
+				//window.screen.lockOrientation('landscape-primary');//设置横屏
+				plus.screen.lockOrientation('landscape-primary');
+				width=window.screen.width;
+				height=window.screen.height;
+				document.getElementsByTagName('video')[0].setAttribute('width','"'+width+'"');
+				document.getElementsByTagName('video')[0].setAttribute('height','"'+height+'"');
+				console.log(width);
+				console.log(height);
 			})
+//				document.getElementsByTagName('video')[0].setAttribute('width','"'+width+'"');
+//				document.getElementsByTagName('video')[0].setAttribute('height','"'+height+'"');
 		}
 	</script>
 </body>

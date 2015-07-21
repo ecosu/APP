@@ -81,6 +81,9 @@
 		
 		<script>
 			window.onload=function(){
+				mui.plusReady(function(){
+					plus.screen.unlockOrientation();
+				})
 				document.getElementById('video_1').addEventListener('tap',function(){
 					mui.openWindow({
 						url:'detail_video.html',
