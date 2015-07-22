@@ -43,21 +43,22 @@
 	</nav>-->
 	<script>
 		window.onload=function(){
-			var width=0;
-			var height=0;
-			mui.plusReady(function(){
-
-				plus.navigator.setFullscreen(true);
-				var lockOrientation = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
-				//window.screen.lockOrientation('landscape-primary');//设置横屏
-				plus.screen.lockOrientation('landscape-primary');
-				width=window.screen.width;
-				height=window.screen.height;
-				document.getElementsByTagName('video')[0].setAttribute('width','"'+width+'"');
-				document.getElementsByTagName('video')[0].setAttribute('height','"'+height+'"');
-				console.log(width);
-				console.log(height);
-			})
+			
+//			var width=0;
+//			var height=0;
+//			mui.plusReady(function(){
+//
+//				plus.navigator.setFullscreen(true);
+//				var lockOrientation = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
+//				//window.screen.lockOrientation('landscape-primary');//设置横屏
+//				plus.screen.lockOrientation('landscape-primary');
+//				width=window.screen.width;
+//				height=window.screen.height;
+//				document.getElementsByTagName('video')[0].setAttribute('width','"'+width+'"');
+//				document.getElementsByTagName('video')[0].setAttribute('height','"'+height+'"');
+//				console.log(width);
+//				console.log(height);
+//			})
 //				document.getElementsByTagName('video')[0].setAttribute('width','"'+width+'"');
 //				document.getElementsByTagName('video')[0].setAttribute('height','"'+height+'"');
 		}

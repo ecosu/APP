@@ -11,6 +11,11 @@
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
 		</script>
+		<style type="text/css">
+			.mui-content-padded {
+				margin-bottom: 60px;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -19,7 +24,7 @@
 		</header>
 		<div class="mui-content">
 			<!--图片列表开始-->
-			<ul class="mui-table-view mui-grid-view">
+			<ul class="mui-table-view mui-grid-view" id="container_image">
 				<li class="mui-table-view-cell mui-media mui-col-xs-6">
 					<a href="#">
 						<img class="mui-media-object" src="http://dcloudio.github.io/mui/assets/img/shuijiao.jpg">
@@ -44,8 +49,36 @@
 						<div class="mui-media-body">静静看这世界</div>
 					</a>
 				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://dcloudio.github.io/mui/assets/img/yuantiao.jpg">
+						<div class="mui-media-body">静静看这世界</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://dcloudio.github.io/mui/assets/img/yuantiao.jpg">
+						<div class="mui-media-body">静静看这世界</div>
+					</a>
+				</li>
 			</ul>
 			<!--图片列表结束-->
+			<!--翻页开始-->
+			<div class="mui-content-padded">
+				<ul class="mui-pager">
+					<li>
+						<a href="#" onclick="return false;" id="pager_pre">
+					上一页
+				</a>
+					</li>
+					<li>
+						<a href="#" onclick="return false;" id="pager_next">
+					下一页
+				</a>
+					</li>
+				</ul>
+			</div>
+			<!--翻页结束-->
 		</div>
 		<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item mui-active" id="tab_back" onclick="return false;">
@@ -66,11 +99,44 @@
 			</a>
 		</nav>
 		<script>
-			window.onload=function(){
-				document.getElementById('tab_back').addEventListener('tap',function(){
+			window.onload = function() {
+				document.getElementById('tab_back').addEventListener('tap', function() {
 					mui.back();
 				})
+				document.getElementById('pager_pre').addEventListener('tap', prepage());
+				document.getElementById('pager_next').addEventListener('tap', nextpage);
 			}
+			var pagenumber = 1;
+			var pagesize = 6;
+
+			function nextpage() {
+				var num=pagenumber+1;
+				console.log(num);
+				console.log(pagesize)
+				mui.ajax('http://apione.sinaapp.com/getimagelist.php', {
+					data: {
+						pagesize: pagesize,
+						pagenumber: num
+					},
+					dataType: 'json',
+					type: 'post',
+					timeout: 10000,
+					success: function(data) {
+						console.log(data.result);
+						if (data.result) {
+							//更新dom
+							pagenumber++;
+						} else {
+							plus.nativeUI.alert('没有更多图片资源！')
+						}
+					},
+					error: function(xhr, type, errorThrown) {
+						console.log(type);
+					}
+				})
+			}
+
+			function prepage() {}
 		</script>
 	</body>
 
